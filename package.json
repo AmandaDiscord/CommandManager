@@ -1,0 +1,15 @@
+{
+  "name": "@amanda/commandstore",
+  "version": "1.0.0",
+  "description": "A means of storage for Commands and other useful properties with typings",
+  "main": "index.js",
+  "types": "./typings/index.d.ts",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "PapiOphidian",
+  "license": "ISC",
+  "dependencies": {
+    "discord.js": "^x"
+  }
+}
