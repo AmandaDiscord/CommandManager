@@ -1,7 +1,7 @@
 {
   "name": "@amanda/commandstore",
   "version": "1.0.0",
-  "description": "A means of storage for Commands and other useful properties with typings",
+  "description": "A Command manager for Discord.js with typings",
   "main": "index.js",
   "types": "./typings/index.d.ts",
   "scripts": {
