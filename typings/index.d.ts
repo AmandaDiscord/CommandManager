@@ -6,7 +6,7 @@ export class CommandStore extends Discord.Collection<string, Command> {
 	public categories: Map<string, Array<string>>;
 
 	public assign(properties: { [name: string]: Command; }): void;
-};
+}
 
 interface Command {
 	usage: string;
@@ -14,4 +14,4 @@ interface Command {
 	aliases: Array<string>;
 	category: string;
 	process(message: Discord.Message, arguments: string, ...extras: Array<any>): any;
-};
+}
