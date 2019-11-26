@@ -1,12 +1,13 @@
 import Discord = require("discord.js");
 
-export class CommandStore extends Discord.Collection<string, Command> {
+declare class CommandStore extends Discord.Collection<string, Command> {
 	constructor();
 
 	public categories: Map<string, Array<string>>;
 
 	public assign(properties: { [name: string]: Command; }): void;
 }
+export = CommandStore;
 
 interface Command {
 	usage: string;
