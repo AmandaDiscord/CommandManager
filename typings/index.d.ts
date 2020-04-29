@@ -1,18 +1,33 @@
 import Discord = require("discord.js");
 
-declare class CommandStore extends Discord.Collection<string, Command> {
+declare class CommandManager<Extras extends Array<any>> {
 	constructor();
 
+	/**
+	 * A cache of all Commands assigned to the manager keyed by the first alias in the Command
+	 */
+	public cache: Discord.Collection<string, Command<Extras>>
+	/**
+	 * An auto managed Map keyed by category names with an Array of command's first aliases
+	 */
 	public categories: Map<string, Array<string>>;
 
-	public assign(properties: { [name: string]: Command; }): void;
+	/**
+	 * A method to assign Commands to the manager
+	 */
+	public assign(properties: Array<Command<Extras>>): void;
+	/**
+	 * A method to remove Commands from the manager
+	 */
+	public remove(commands: Array<string>): void;
 }
-export = CommandStore;
+export = CommandManager;
 
-interface Command {
+interface Command<T extends Array<any>> {
 	usage: string;
 	description: string;
 	aliases: Array<string>;
 	category: string;
-	process(message: Discord.Message, arguments: string, ...extras: Array<any>): any;
+	example?: string;
+	process(message: Discord.Message, args?: string, ...extras: T): any;
 }

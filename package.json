@@ -1,5 +1,5 @@
 {
-  "name": "@amanda/commandstore",
+  "name": "@amanda/commandmanager",
   "version": "1.0.0",
   "description": "A Command manager for Discord.js with typings",
   "main": "index.js",
