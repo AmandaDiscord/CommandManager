@@ -29,5 +29,6 @@ interface Command<T extends Array<any>> {
 	aliases: Array<string>;
 	category: string;
 	example?: string;
+	order?: number;
 	process(message: Discord.Message, args?: string, ...extras: T): any;
 }

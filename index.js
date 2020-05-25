@@ -7,7 +7,7 @@ class CommandManager {
 		/**
 		 * A cache of all Commands assigned to the manager keyed by the first alias in the Command
 		 *
-		 * @type {Discord.Collection<string, { usage: string, description: string, aliases: Array<string>, category: string, example?: string, process: (message: Discord.Message, args?: string, ...extras: Extras) => any }>}
+		 * @type {Discord.Collection<string, { usage: string, description: string, aliases: Array<string>, category: string, example?: string, order?: number, process: (message: Discord.Message, args?: string, ...extras: Extras) => any }>}
 		 */
 		this.cache = new Discord.Collection()
 		/**
@@ -20,7 +20,7 @@ class CommandManager {
 	/**
 	 * A method to assign Commands to the manager
 	 *
-	 * @param {Array<{ usage: string, description: string, aliases: Array<string>, category: string, example?: string, process: (message: Discord.Message, args?: string, ...extras: Extras) => any }>} properties
+	 * @param {Array<{ usage: string, description: string, aliases: Array<string>, category: string, example?: string, order?: number, process: (message: Discord.Message, args?: string, ...extras: Extras) => any }>} properties
 	 */
 	assign(properties) {
 		properties.forEach(i => {
