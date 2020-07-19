@@ -1,7 +1,7 @@
 ## CommandManager
 Written by @PapiOphidian, this module serves as a Command manager and holder for Amanda. The original source has been modified to allow for usage cases outside of Amanda and also for adaptability if the future requires it to change.
 
-This module depends on Discord.js because it makes use of Discord.js' Collection class which is arguably better than the built in Map class.
+This module depends on Discord.js because it makes use of Discord.js' Collection class which is arguably better than the built in Map class. CommandManager can be used with any Discord API wrapper, howeveer.
 
 # Usage
 There are no typings for the Command#process method by default. If you are using VSCode's intellisense for TS or VSCode's CheckJS, you may run into issues with it yelling at you unless you type things properly. Previous versions were typed like:
