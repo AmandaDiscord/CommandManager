@@ -1,12 +1,12 @@
 import Discord = require("discord.js");
 
-declare class CommandManager<Extras extends Array<any>> {
+declare class CommandManager<Params extends Array<any>> {
 	constructor();
 
 	/**
 	 * A cache of all Commands assigned to the manager keyed by the first alias in the Command
 	 */
-	public cache: Discord.Collection<string, Command<Extras>>
+	public cache: Discord.Collection<string, Command<Params>>
 	/**
 	 * An auto managed Map keyed by category names with an Array of command's first aliases
 	 */
@@ -15,7 +15,7 @@ declare class CommandManager<Extras extends Array<any>> {
 	/**
 	 * A method to assign Commands to the manager
 	 */
-	public assign(properties: Array<Command<Extras>>): void;
+	public assign(properties: Array<Command<Params>>): void;
 	/**
 	 * A method to remove Commands from the manager
 	 */
@@ -30,5 +30,5 @@ interface Command<T extends Array<any>> {
 	category: string;
 	example?: string;
 	order?: number;
-	process(message: Discord.Message, args?: string, ...extras: T): any;
+	process(...T): any;
 }
