@@ -60,7 +60,7 @@ module.exports = CommandManager;
  * @property {string} description
  * @property {Array<string>} aliases
  * @property {string} category
- * @property {string} [example]
+ * @property {Array<string>} [examples]
  * @property {number} [order]
- * @property {(...Params) => any} process
+ * @property {(...args: Params) => any} process
  */
