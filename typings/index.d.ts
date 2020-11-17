@@ -1,4 +1,4 @@
-import Discord = require("discord.js");
+import { Collection } from "@augu/immutable";
 
 declare class CommandManager<Params extends Array<any>> {
 	constructor();
@@ -6,7 +6,7 @@ declare class CommandManager<Params extends Array<any>> {
 	/**
 	 * A cache of all Commands assigned to the manager keyed by the first alias in the Command
 	 */
-	public cache: Discord.Collection<string, Command<Params>>
+	public cache: Collection<Command<Params>>
 	/**
 	 * An auto managed Map keyed by category names with an Array of command's first aliases
 	 */

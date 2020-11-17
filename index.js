@@ -1,5 +1,6 @@
 // @ts-check
-const Discord = require("discord.js");
+
+const { Collection } = require("@augu/immutable")
 
 /** @template {Array<any>} Params */
 class CommandManager {
@@ -7,9 +8,9 @@ class CommandManager {
 		/**
 		 * A cache of all Commands assigned to the manager keyed by the first alias in the Command
 		 *
-		 * @type {Discord.Collection<string, Command<Params>>}
+		 * @type {Collection<Command<Params>>}
 		 */
-		this.cache = new Discord.Collection()
+		this.cache = new Collection()
 		/**
 		 * An auto managed Map keyed by category names with an Array of command's first aliases
 		 *
