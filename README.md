@@ -1,10 +1,8 @@
 ## CommandManager
 Written by @PapiOphidian, this module serves as a Command manager and holder for Amanda. The original source has been modified to allow for usage cases outside of Amanda and also for adaptability if the future requires it to change.
 
-This module depends on Discord.js because it makes use of Discord.js' Collection class which is arguably better than the built in Map class. CommandManager can be used with any Discord API wrapper, however.
-
 # Usage
-There are no typings for the Command#process method by default. If you are using VSCode's intellisense for TS or VSCode's CheckJS, you may run into issues with it yelling at you unless you type things properly. Previous versions were typed like:
+There are no typings for the Command#process method by default. If you are using TypeScript or VSCode's CheckJS, you may run into issues with it yelling at you unless you type things properly. Previous iterations were similar to:
 
 ```ts
 interface Command<T extends Array<any>> {
@@ -12,7 +10,7 @@ interface Command<T extends Array<any>> {
 	description: string;
 	aliases: Array<string>;
 	category: string;
-	example?: string;
+	examples?: Array<string>;
 	order?: number;
 	process(message: Discord.Message, args: string, extras: ...T): any;
 }
@@ -31,8 +29,8 @@ const commands = new CommandManager();
 Then append any other extras you want into the Array. The process is similar for TS
 
 ```ts
-import Discord = require("discord.js");
-import CommandManager = require("@amanda/commandmanager");
+import Discord from "discord.js";
+import CommandManager from "@amanda/commandmanager";
 
 const commands: new CommandManager<[Discord.Message, string]>();
 ```

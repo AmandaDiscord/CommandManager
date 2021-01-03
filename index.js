@@ -1,6 +1,6 @@
 // @ts-check
 
-const { Collection } = require("@augu/immutable")
+const { Collection } = require("@augu/collections")
 
 /** @template {Array<any>} Params */
 class CommandManager {
@@ -8,7 +8,7 @@ class CommandManager {
 		/**
 		 * A cache of all Commands assigned to the manager keyed by the first alias in the Command
 		 *
-		 * @type {Collection<Command<Params>>}
+		 * @type {Collection<string, Command<Params>>}
 		 */
 		this.cache = new Collection()
 		/**
