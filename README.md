@@ -19,7 +19,7 @@ interface Command<T extends Array<any>> {
 The message, args and extras in the process method params were removed in favor for just a ...T which is a destructured Array of whatever you want it to be. If you want the old style of how things worked, you'd have to do:
 
 ```js
-const Discord = require("discord.js")
+const Discord = require("discord.js");
 const CommandManager = require("@amanda/commandmanager");
 
 /** @type {CommandManager<[Discord.Message, string]>} */
@@ -32,5 +32,5 @@ Then append any other extras you want into the Array. The process is similar for
 import Discord from "discord.js";
 import CommandManager from "@amanda/commandmanager";
 
-const commands: new CommandManager<[Discord.Message, string]>();
+const commands = new CommandManager<[Discord.Message, string]>();
 ```
