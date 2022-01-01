@@ -16,7 +16,7 @@ interface Command<T extends Array<any>> {
 }
 ```
 
-The message, args and extras in the process method params were removed in favor for just a ...T which is a destructured Array of whatever you want it to be. If you want the old style of how things worked, you'd have to do:
+The message, args and extras in the process method params were removed in favor for just a ...T which is a destructured Array of whatever you want it to be. If you want the old style of how things worked, you'd have to do something similar to this while keeping in mind that the message intent is privileged and this lib expects usage of slash commmands:
 
 ```js
 const Discord = require("discord.js");

@@ -1,7 +1,7 @@
 {
   "name": "@amanda/commandmanager",
-  "version": "1.0.0",
-  "description": "A Command manager for any Discord wrapper",
+  "version": "2.0.0",
+  "description": "A slash command manager for any Discord wrapper",
   "main": "index.js",
   "types": "./typings/index.d.ts",
   "scripts": {
@@ -10,6 +10,7 @@
   "author": "PapiOphidian",
   "license": "ISC",
   "dependencies": {
-    "@augu/collections": "^1.0.8"
+    "@discordjs/collection": "^0.4.0",
+    "discord-typings": "9.0.x"
   }
 }

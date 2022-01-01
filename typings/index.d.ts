@@ -1,7 +1,9 @@
-import { Collection } from "@augu/collections";
+import { Collection } from "@discordjs/collection";
 
 declare class CommandManager<Params extends Array<any>> {
-	constructor();
+	public static readonly default: typeof CommandManager;
+
+	public constructor();
 
 	/**
 	 * A cache of all Commands assigned to the manager keyed by the first alias in the Command
@@ -24,9 +26,9 @@ declare class CommandManager<Params extends Array<any>> {
 export = CommandManager;
 
 interface Command<Params extends Array<any>> {
-	usage: string;
+	name: string;
+	options?: Array<import("discord-typings").ApplicationCommandOption>;
 	description: string;
-	aliases: Array<string>;
 	category: string;
 	examples?: Array<string>;
 	order?: number;

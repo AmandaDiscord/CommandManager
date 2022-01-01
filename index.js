@@ -1,6 +1,6 @@
 // @ts-check
 
-const { Collection } = require("@augu/collections")
+const { Collection } = require("@discordjs/collection")
 
 /** @template {Array<any>} Params */
 class CommandManager {
@@ -25,14 +25,14 @@ class CommandManager {
 	 */
 	assign(properties) {
 		properties.forEach(i => {
-			if (this.cache.get(i.aliases[0])) this.cache.delete(i.aliases[0])
-			this.cache.set(i.aliases[0], i)
+			if (this.cache.get(i.name)) this.cache.delete(i.name)
+			this.cache.set(i.name, i)
 			this.categories.forEach(c => {
-				if (c.includes(i.aliases[0])) c.splice(c.indexOf(i.aliases[0]), 1)
+				if (c.includes(i.name)) c.splice(c.indexOf(i.name), 1)
 			})
 			const cat = this.categories.get(i.category)
-			if (!cat) this.categories.set(i.category, [i.aliases[0]])
-			else if (!cat.includes(i.aliases[0])) cat.push(i.aliases[0])
+			if (!cat) this.categories.set(i.category, [i.name])
+			else if (!cat.includes(i.name)) cat.push(i.name)
 		})
 	}
 	/**
@@ -51,15 +51,16 @@ class CommandManager {
 		}
 	}
 }
+CommandManager.default = CommandManager
 
 module.exports = CommandManager;
 
 /**
  * @template {Array<any>} Params
  * @typedef {Object} Command
- * @property {string} usage
+ * @property {string} name
+ * @property {Array<import("discord-typings").ApplicationCommandOption>} [options]
  * @property {string} description
- * @property {Array<string>} aliases
  * @property {string} category
  * @property {Array<string>} [examples]
  * @property {number} [order]
